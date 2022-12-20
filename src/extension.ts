@@ -29,6 +29,32 @@ export function activate(context: vscode.ExtensionContext) {
     }),
     vscode.workspace.onDidChangeConfiguration(onConfigChanged)
   )
+  const triggers = [''];
+  const completionProvider = vscode.languages.registerCompletionItemProvider(['javascript', 'typescript'], {
+    async provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
+      function t(text: string) {
+        return new vscode.TextEdit(new vscode.Range(position, position), text)
+      }
+      let APIList: vscode.CompletionItem[] = [
+        { label: '$dora', detail: '用于获取框架版本信息', textEdit: t('dora') },
+        { label: '$http', detail: '网络请求，使用方法类似 axios', textEdit: t('http') },
+        { label: '$ui', detail: '一些方便简单的 UI 交互', textEdit: t('ui') },
+        { label: '$input', detail: '输入操作', textEdit: t('input') },
+        { label: '$router', detail: '路由导航', textEdit: t('router') },
+        { label: '$prefs', detail: '读取和设置配置项', textEdit: t('prefs') },
+        { label: '$storage', detail: 'key-value 的本地数据存储', textEdit: t('storage') },
+        { label: '$icon', detail: '用于使用内置图标作为 list 组件的图标，详情见下文', textEdit: t('icon') },
+        { label: '$assets', detail: '访问内置资源，详情见下文', textEdit: t('assets') },
+        { label: '$permission', detail: '插件权限管理', textEdit: t('permission') },
+      ]
+      return APIList.map(item => {
+        item.detail = `[Dora.js] ${item.detail}`
+        return item
+      })
+    }
+  }, ...triggers);
+
+  context.subscriptions.push(completionProvider);
 }
 
 function onConfigChanged(event: any) {

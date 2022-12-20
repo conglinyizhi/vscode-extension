@@ -144,7 +144,17 @@
           "description": "是否在文件变更时自动推送到手机"
         }
       }
-    }
+    },
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/jsComponent.code-snippets"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/tsComponent.code-snippets"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "yarn run compile",
