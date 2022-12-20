@@ -172,7 +172,6 @@
     "@types/request-promise": "^4.1.44",
     "@types/targz": "^1.0.0",
     "@types/tmp": "^0.1.0",
-    "tslint": "^5.12.1",
     "typescript": "^3.3.1",
     "vscode": "^1.1.28"
   }
