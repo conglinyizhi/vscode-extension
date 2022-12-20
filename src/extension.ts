@@ -223,7 +223,7 @@ async function push() {
     console.log(`build success`)
     let resp = await connector.push(file)
     console.log(`push finished: code=${resp.code}, message=${resp.message}`)
-  } catch (err) {
+  } catch (err: any) {
     showError(err)
   }
 }
