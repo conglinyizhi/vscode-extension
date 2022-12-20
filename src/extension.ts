@@ -92,7 +92,7 @@ async function parseJson(dir: string): Promise<any> {
   return new Promise(function (resolve, reject) {
     readJson(file, console.error, false, function (er: any, data: any) {
       if (er) {
-        console.error(`An error occur when reading ${file}`)
+        console.error(`An error occur when reading \n读取文件时候发生了错误\n ${file}`)
         reject(er)
         return
       }

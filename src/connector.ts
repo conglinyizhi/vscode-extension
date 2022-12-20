@@ -65,7 +65,7 @@ export class Connector {
     const config = vscode.workspace.getConfiguration('dorajs')
     const host = config.get('host')
     if (!host) {
-      throw new Error('Host not set')
+      throw new Error('Host not set. 没有设置 Host 地址')
     }
     return `http://${host}:4000`
   }
