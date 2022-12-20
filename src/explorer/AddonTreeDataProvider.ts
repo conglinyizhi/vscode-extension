@@ -27,7 +27,7 @@ export class AddonTreeDataProvider implements vscode.TreeDataProvider<Addon> {
       collapsibleState: vscode.TreeItemCollapsibleState.None,
       command: {
         command: 'dorajs.download',
-        title: `Download ${element.displayName}`,
+        title: `下载 ${element.displayName}`,
         arguments: [element]
       },
       description: element.version
